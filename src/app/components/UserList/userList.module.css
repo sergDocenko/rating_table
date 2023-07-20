@@ -4,8 +4,14 @@
 }
 .user-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(37rem, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
   list-style: none;
   max-width: 100%;
+}
+
+@media screen and (max-width: 870px) {
+  .user-list {
+    grid-template-columns: 1fr;
+  }
 }

@@ -25,17 +25,20 @@ const UserList = () => {
   }
 
   function addUsers() {
-    fetchUsers({ limit }).then((data) => {     
+    fetchUsers({ limit }).then((data) => {
       allUsers.push(...data);
       setUsers([...data]);
     });
   }
   function handleScroll() {
     const clientheight = document.documentElement.clientHeight;
-    const windowRelativeBottom =
-      document.documentElement.getBoundingClientRect().bottom;
-    const buffer = windowRelativeBottom * 0.002;
-    if (windowRelativeBottom < clientheight + buffer) {
+    const scrollHeight = document.documentElement.scrollHeight;
+    const currentScroll = window.pageYOffset;
+    // console.log(clientheight, currentScroll, scrollHeight);
+
+    
+    const buffer = clientheight /10;
+    if (scrollHeight < clientheight + currentScroll + buffer) {
       addUsers();
     }
   }
@@ -44,7 +47,10 @@ const UserList = () => {
     <section className={styles["user-list__container"]}>
       <ul className={styles["user-list"]}>
         {allUsers.map((user, index) => (
-          <li key={allUsers.length-limit+index} onClick={handleSetActive.bind(null, index)}>
+          <li
+            key={allUsers.length - limit + index}
+            onClick={handleSetActive.bind(null, index)}
+          >
             <UserInfo
               number={index + 1}
               {...user}
