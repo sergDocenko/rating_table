@@ -1,0 +1,21 @@
+:root {
+  --container-width-lg: 80%;
+  --container-width-lg-variant: 85%;
+  --container-width-md: 92%;
+  --container-width-sm: 95%;
+
+  --color-white: #fff;
+  --color-black: #000;
+  --color-purple:rgb(148, 47, 206);
+  --color-blue:rgb(44, 5, 182);
+
+
+  --border-radius: 1rem;
+  --border-radius-1: 1.6rem;
+  --border-radius-2: 2rem;
+
+  --transition: all 400ms ease;
+  --scale: scale(1.02);
+  --border-primary: 1px solid rgba(104, 103, 103, 0.361);
+  --box-shadow: 0 0 6px rgba(79, 76, 76, 0.574);
+}

@@ -1,0 +1,11 @@
+.user-list__container {
+  display: flex;
+  justify-content: center;
+}
+.user-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(37rem, 1fr));
+  gap: 1rem;
+  list-style: none;
+  max-width: 100%;
+}
