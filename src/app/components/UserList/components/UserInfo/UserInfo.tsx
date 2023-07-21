@@ -1,17 +1,13 @@
 import { User } from "@/app/types";
 import clsx from "clsx";
-import { FC } from "react";
+import React, { FC } from "react";
 import Helmet from "../../../../../../public/helmet.svg";
 import styles from "./userInfo.module.css";
+import { getNormalizeTimeToString } from "@/app/utils";
 
 interface UserInfoProps extends User {
   number: number;
   active?: boolean;
-}
-
-function getNormalizeTime(time: number): string {
-  const date = new Date(time);
-  return `${date.getMinutes()}:${date.getSeconds()}.${date.getMilliseconds()} `;
 }
 
 const UserInfo: FC<UserInfoProps> = (props) => {
@@ -28,7 +24,7 @@ const UserInfo: FC<UserInfoProps> = (props) => {
       <div className={styles["info-block"]}>
         <h3 className={styles.name}>{name}</h3>
         <div>
-          <span className={styles.time}>{getNormalizeTime(time)}</span>
+          <span className={styles.time}>{getNormalizeTimeToString(time)}</span>
           <span className={styles.speed}> | {speed} км/ч</span>
         </div>
       </div>
@@ -36,4 +32,4 @@ const UserInfo: FC<UserInfoProps> = (props) => {
   );
 };
 
-export default UserInfo;
+export default React.memo(UserInfo);
